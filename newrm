@@ -11,6 +11,7 @@
 # the cron job will run the following command
 # I call /bin/rm explicilty to avoid a potential file forever loop
 find $HOME/.deleted-files/* -mtime +7 -exec /bin/rm {} \;
+I think you need to do sudo chmod 700 filename because cronjobs are run as root
 '
 
 archivedir="$HOME/.deleted-files"
