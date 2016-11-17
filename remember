@@ -1,0 +1,15 @@
+#!/bin/bash
+# remember-An easy command line utility to remind you of things
+
+rememberfile="$HOME/.remember"
+
+if [ $# -eq 0 ] ; then
+  # Promt the user for input and append what they write to rem file
+  echo "Enter note, end with ^D: "
+  cat - >> $rememberfile
+else
+  # append any arg passed to the script on teh .remember file
+  echo "$@" >> $rememberfile
+fi
+
+exit 0

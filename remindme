@@ -1,0 +1,21 @@
+#!/bin/bash
+# remindme--Searches a data file for mathcing lines or, if no
+# args are supplied it shows entire file
+
+rememberfile="$HOME/.remember"
+
+if [ ! -f $rememberfile ] ; then
+  echo "$0: You don't seem to have a .remember file. " >&2
+  echo "Just use 'remember' to add a reminder or note" >&2
+  exit 1
+fi
+
+if [ $# -eq 0 ] ; then
+  # display the whole remember file when no search criteria given
+  more $rememberfile
+else
+  # Otherwise search for given terms and display
+  grep -i -- "$@" $rememberfile | ${PAGER:-more}
+fi
+
+exit 0
