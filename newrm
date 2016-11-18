@@ -10,7 +10,9 @@
 /etc/cron.daily
 # the cron job will run the following command
 # I call /bin/rm explicilty to avoid a potential file forever loop
-find $HOME/.deleted-files/* -mtime +7 -exec /bin/rm {} \;
+find $/home/dwheeler/.deleted-files/* -mtime +7 -exec /bin/rm {} \;
+# save this file so that it has NO FILE EXTENSION!! and place in
+/etc/cron.weekly with permission as sudo chmod 755
 '
 
 archivedir="$HOME/.deleted-files"
