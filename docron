@@ -21,8 +21,6 @@ fi
 
 job="$(awk "NF > 6 && /$1/ { for (i=7;i<=NF;i++) print \$i }" $rootcron)"
 
-echo $job
-
 if [ -z "$job" ] ; then  # no job? That must be an error
   echo "$0: Error: no $1 job found in $rootcron" >&2
   exit 1
