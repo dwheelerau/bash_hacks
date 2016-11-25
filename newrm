@@ -11,7 +11,7 @@
 # the cron job will run the following command
 # I call /bin/rm explicilty to avoid a potential file forever loop
 there is a cron job that goes with this that looks like this:
-find /home/dwheeler/.deleted-files/* -mtime +7 -exec /bin/rm {} \;
+find /home/dwheeler/.deleted-files/* -mtime +7 -exec /bin/rm -r {} \;
 # save this file so that it has NO FILE EXTENSION!! and place in
 /etc/cron.daily (it only kills files that are 7 days old)
 with permission as sudo chmod 755
